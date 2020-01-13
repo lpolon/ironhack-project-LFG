@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "dev": "node ./models/seeds/SocialLinksSeed ; node ./models/seeds/GamesSeed.js ; nodemon ./entry-point.js",
     "start": "nodemon ./entry-point.js"
   },
   "dependencies": {
