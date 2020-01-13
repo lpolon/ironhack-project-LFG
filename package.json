@@ -6,6 +6,7 @@
     "start": "nodemon ./entry-point.js"
   },
   "dependencies": {
+    "bcrypt": "^3.0.7",
     "connect-ensure-login": "^0.1.1",
     "connect-flash": "^0.1.1",
     "cookie-parser": "~1.4.4",
