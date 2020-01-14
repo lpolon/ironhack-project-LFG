@@ -5,12 +5,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/user');
-const signupRouter = require('./routes/signup')
-const loginRouter = require('./routes/login')
-const perfilRouter = require('./routes/perfil')
-const logoutRouter = require('./routes/logout')
+
 const mongoose = require('mongoose');
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy;
@@ -132,12 +127,7 @@ app.use(passport.session());
 
 app.use(flash())
 // router
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/signup', signupRouter)
-app.use('/login', loginRouter)
-app.use('/logout', logoutRouter)
-app.use('/perfil', perfilRouter)
+app.use('/', require('./routes/index'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
