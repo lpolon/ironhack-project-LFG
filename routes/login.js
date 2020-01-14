@@ -9,9 +9,8 @@ loginRouter.get('/', (req, res) => {
 });
 
 loginRouter.post('/', ensureLoggedOut(), passport.authenticate('local-login', {
-  successRedirect : '/perfil',
+  successRedirect : '/profile',
   failureRedirect : '/login',
-  failureFlash : true,
   passReqToCallback : true,
 }));
 

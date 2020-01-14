@@ -11,9 +11,7 @@ signupRouter.get('/', (req, res) => {
 signupRouter.post('/', ensureLoggedOut(), passport.authenticate('local-signup', {
   successRedirect : '/login',
   failureRedirect : '/signup',
-  failureFlash : true,
   passReqToCallback : true,
 }));
-
 
 module.exports = signupRouter;
