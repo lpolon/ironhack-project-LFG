@@ -11,7 +11,6 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('./models/Users');
 const bcrypt = require('bcrypt');
-const flash = require('connect-flash');
 const session = require('express-session');
 
 const app = express();
@@ -90,7 +89,6 @@ passport.use(
   new LocalStrategy(
     { passReqToCallback: true },
     (req, username, password, next) => {
-      console.log(req.body);
       User.findOne({ username }, (err, user) => {
         if (err) {
           return next(err);
@@ -128,8 +126,6 @@ passport.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(flash());
-// router
 app.use('/', require('./routes/index'));
 
 // catch 404 and forward to error handler

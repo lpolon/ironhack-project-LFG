@@ -4,7 +4,7 @@ const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 const passport = require('passport')
 
 profileRouter.get('/', ensureLoggedIn(), (req, res, next) => {
-  res.render('perfil');
+  res.render('profile.hbs');
 });
 
 module.exports = profileRouter;
