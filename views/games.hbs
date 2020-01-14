@@ -1,0 +1,12 @@
+{{#each findRes}}
+<div>
+<h2>{{name}}</h2>
+<img src="{{img_url}}" alt="">
+{{#each platforms}}
+<p>{{name}}</p>
+{{/each}}
+<button type="submit">
+  <a href="/games/add">add Game</a>
+</button>
+{{/each}}
+</div>
