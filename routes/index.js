@@ -5,9 +5,8 @@ const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 indexRouter.use('/signup', require('./signup'));
 indexRouter.use('/login', require('./login'));
 indexRouter.use('/logout', require('./logout'));
-indexRouter.use('/games', require('./games'));
+indexRouter.use('/games', require('./findGames'));
 
-// this route will be /:userName
 const ensureRightUser = require('../middlewares/ensureRightUser');
 
 indexRouter.use('/:username', ensureLoggedIn(), ensureRightUser, require('./user'));

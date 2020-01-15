@@ -2,7 +2,6 @@ const express = require('express');
 const myGamesRouter = express.Router();
 const Users = require('../models/Users');
 const isUserGameArrEmpty = require('../middlewares/isUserGameArrEmpty');
-// escrever uma função que pega todos os jogos do usuário. Se estiver vazio, convidar para adicionar jogos.
 
 myGamesRouter.get('/', isUserGameArrEmpty, async (req, res, next) => {
   const { status } = req.noGamesFlag;
