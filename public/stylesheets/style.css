@@ -1,7 +1,97 @@
+/** Navbar**/
+.menu__list{
+  display: flex;  
+  text-align: center;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style: none;  
+}
+
+.menu__group{
+  flex-grow: 1;
+}
+
+.menu__link{
+  display: block;
+}
+
+#perfilphoto {
+	width: 69px;
+  height: auto;
+  padding: 4px;
+}
+/* skin */
+
+.menu{
+	background-image: linear-gradient(to right, #0F2027, #203A43, #2C5364);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
+}
+
+.menu__link{
+  padding: 2rem 1.5rem;
+
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* states */
+.menu__link:focus{
+  outline: 2px solid #fff;
+}
+
+/* hover animation */
+
+.menu__link{
+  position: relative;
+  overflow: hidden;
+
+  will-change: color;
+  transition: color .25s ease-out;  
+}
+
+
+.menu__link::before, 
+.menu__link::after{
+  content: "";
+  width: 0;
+  height: 3px;
+  background-color: #fff;
+
+  will-change: width;
+  transition: width .1s ease-out;
+
+  position: absolute;
+  bottom: 0;
+}
+
+.menu__link::before{
+  left: 50%;
+  transform: translateX(-50%); 
+}
+
+.menu__link::after{
+  right: 50%;
+  transform: translateX(50%); 
+}
+
+.menu__link:hover::before, 
+.menu__link:hover::after{
+  width: 100%;
+  transition-duration: .2s;
+}
+
+
+
+
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  /* background-color: violet; */
+	background-color:	#bdc3c7
+
 }
 
 a {
@@ -85,4 +175,40 @@ a {
 img {
 	width: 100px;
 	height: auto;
+}
+
+
+
+
+.bodyuser{
+	width: auto;
+	height: auto;
+	background-color: blueviolet;
+}
+
+
+
+.row.content {height: 450px}
+    
+/* Set gray background color and 100% height */
+.sidenav {
+	padding-top: 20px;
+	background-color: #f1f1f1;
+	height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+	background-color: #555;
+	color: white;
+	padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+	.sidenav {
+		height: auto;
+		padding: 15px;
+	}
+	.row.content {height:auto;} 
 }

@@ -1,9 +1,62 @@
+<<<<<<< HEAD
+<div class="page">
+  <nav class="menu">
+    <ul class="menu__list">
+      <!--Adicionar photo de perfil.-->
+      <li class="menu__group"><img id="perfilphoto" src="/image/batman_hero_avatar_comics-512.png" alt="some text"></li>
+      <li class="menu__group"><a class="menu__link">{{username}}</a></li>
+      <li class="menu__group"><a href='{{username}}/games' class="menu__link">Meus jogos</a></li>
+      <li class="menu__group"><a href="/games" class="menu__link">Adicionar jogos</a></li>
+      <li class="menu__group"><a href="{{username}}/friends" class="menu__link">Meus amigos</a></li>
+      <li class="menu__group"><a href="/friends" class="menu__link">adicionar amigos</a></li>
+      <li class="menu__group"><a href="/logout" class="menu__link">logout</a></li>
+    </ul>
+  </nav>
+</div>
+<div class="bodyuser">
+
+ 
+{{#if resObj.status}}
+<h1>{{resObj.statusMsg}}</h1>
+{{/if}}
+
+<div class="container">
+  <div class="row mb-5">
+  {{#each findRes}}
+  <div class="col-md-4">
+    <div class="card text-center mb-3">
+      <img class="card-img-top" src="{{img_url}}" alt="Card image game">
+      <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+        {{#each platforms}}
+          <p class="card-text">{{name}}</p>
+        {{/each}}
+        <button type="submit">
+          <a href="games/{{_id}}/add">add Game</a>
+        </button>
+      </div>
+    </div>
+    </div>
+  {{/each}}
+  </div>
+</div>
+
+
+		<!-- row -->
+</div>
+
+
+
+
+{{!-- <<h2>{{name}}</h2>
+=======
 {{#if resObj.status}}
 <h1>{{resObj.statusMsg}}</h1>
 {{/if}}
 {{#each resObj}}
 <div>
 <h2>{{name}}</h2>
+>>>>>>> origin
 <img src="{{img_url}}" alt="">
 {{#each platforms}}
 <p>{{name}}</p>
@@ -13,4 +66,5 @@
   <a href="games/{{_id}}/add">add Game</a>
 </button>
 {{/each}}
-</div>
+</div>> --}}
+
