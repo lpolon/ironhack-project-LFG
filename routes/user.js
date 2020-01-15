@@ -1,10 +1,10 @@
-var express = require('express');
-var userRouter = express.Router({mergeParams: true});
+const express = require('express');
+const userRouter = express.Router();
+const myGamesRouter = require('./username-games');
 
-/* GET users listing. */
-userRouter.get('/', function(req, res, next) {
-  console.log('olá, /:username')
-  console.log(req.user)
+userRouter.use('/games', myGamesRouter);
+
+userRouter.get('/', (req, res, next) => {
   res.render('user', req.user);
 });
 
