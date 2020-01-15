@@ -4,7 +4,7 @@ const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 const { loginStrat } = require('../middlewares/passport');
 
 loginRouter.get('/', (req, res) => {
-  res.render('login');
+  res.render('login.hbs');
 });
 loginRouter.post('/', ensureLoggedOut(), loginStrat, (req, res, next) => {
   res.redirect(`/${req.user.username}`);

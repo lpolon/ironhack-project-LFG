@@ -15,7 +15,9 @@ isUserGameArrEmpty,
       resObj.status = status;
       resObj.statusMsg = statusMsg;
     }
-    res.render('games', { resObj });
+    const {username} = req.user;
+    resObj.username = username;
+    res.render('games.hbs', { resObj });
 });
 
 // push game Id to User,
@@ -23,12 +25,8 @@ isUserGameArrEmpty,
 gamesRouter.get('/:_id/add', async (req, res, next) => {
   try {
     const gameId = req.params._id;
-    userId = req.user._id;
-    const {id, name, platforms, img_url} = await Games.findById(gameId);
-    const update = await Users.findByIdAndUpdate(userId, {$push: {games: gameId}})
-    console.log('apareceu o jogo?', update);
-    const userAfterUpdate = await Users.findById(userId);
-    console.log('userId: ', userAfterUpdate);
+    const userId = req.user._id;
+    await Users.findByIdAndUpdate(userId, {$push: {games: gameId}})
     res.redirect(`/${req.user.username}/games`);
   } catch (error) {
     next(error)
