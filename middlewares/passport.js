@@ -7,8 +7,7 @@ const signupStrat = passport.authenticate('local-signup', {
 });
 
 const loginStrat = passport.authenticate('local-login', {
-  // TODO: ENVIAR O USUÁRIO PARA /:username 
-  // mudar para /:username/
+  // middleware after /login post
   // successRedirect: '/',
   failureRedirect: '/login',
   passReqToCallback: true,

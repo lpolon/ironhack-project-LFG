@@ -1,4 +1,7 @@
-{{#each findRes}}
+{{#if resObj.status}}
+<h1>{{resObj.statusMsg}}</h1>
+{{/if}}
+{{#each resObj}}
 <div>
 <h2>{{name}}</h2>
 <img src="{{img_url}}" alt="">
