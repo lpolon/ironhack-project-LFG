@@ -1974,7 +1974,8 @@ const filterResults = (seed) => {
   return JSON.stringify(lala);
 };
 
-// TODO: make it work
+// consider passing it directly to seed
+
 const fs = require('fs')
 const createSeedObjFile = () => {
     const obj = filterResults(rawSelection)
