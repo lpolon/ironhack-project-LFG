@@ -9,8 +9,6 @@ myGamesRouter.get('/', isUserGameArrEmpty, (req, res, next) => {
   if (status) {
     res.redirect('/games');
   }
-  console.log('status:', status);
-  console.log('req.noGamesFlag:', req.noGamesFlag);
   res.send(`oi, ${req.user.username}`);
 });
 
