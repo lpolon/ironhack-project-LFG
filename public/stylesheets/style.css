@@ -204,6 +204,23 @@ footer {
 	padding: 15px;
 }
 
+/* INDEX PAGE */
+
+.banner-area {
+	background-image: url(/image/bg-fliper.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 78vh;
+}
+
+.banner-area .main {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background-color: rgba(71, 71, 71, 0.8);
+	padding: 50px;
+	color: #7AEAAB;
+}
+
 /* On small screens, set height to 'auto' for sidenav and grid */
 @media screen and (max-width: 767px) {
 	.sidenav {
@@ -212,3 +229,4 @@ footer {
 	}
 	.row.content {height:auto;} 
 }
+
