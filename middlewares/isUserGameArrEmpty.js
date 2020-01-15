@@ -1,7 +1,6 @@
 const isUserGameArrEmpty = async (req, res, next) => {
   const User = require('../models/Users');
   try {
-    console.log(req.user)
     const { games } = await User.findById(req.user._id);
     if (games.length === 0) {
       req.noGamesFlag = {
@@ -10,6 +9,10 @@ const isUserGameArrEmpty = async (req, res, next) => {
       };
       next();
     } else {
+      req.noGamesFlag = {
+        status: false,
+        statusMsg: '',
+      }
       next();
     }
   } catch (error) {
