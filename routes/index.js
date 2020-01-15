@@ -5,7 +5,6 @@ const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 indexRouter.use('/signup', require('./signup'));
 indexRouter.use('/login', require('./login'));
 indexRouter.use('/logout', require('./logout'));
-indexRouter.use('/profile', require('./profile'));
 indexRouter.use('/games', require('./games'));
 
 // add middleware ensure login & and get username param.
