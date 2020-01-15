@@ -10,10 +10,8 @@ myGamesRouter.get('/', isUserGameArrEmpty, async (req, res, next) => {
     res.redirect('/games');
   }
   const { games } = await Users.findById(req.user._id).populate('games');
-  const resObj = games;
-  // preciso retornar um array de jogos.
-  console.log(resObj);
-  console.log(Array.isArray(resObj));
+  const { username } = req.user;
+  const resObj = { games, username };
   res.render('user-games.hbs', { resObj });
 });
 
