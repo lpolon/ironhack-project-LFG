@@ -11,9 +11,14 @@ myGamesRouter.get('/', isUserGameArrEmpty, async (req, res, next) => {
     if (status) {
       res.redirect('/find-games');
     }
-    const { games } = await Users.findById(req.user._id).populate('games');
+    const { _id: userId } = req.user;
+
+    const gamePrefs = await GamePrefs.find({ userId }).populate('gameId');
+    //  .sort({createdAt: 'desc'})
     const { username } = req.user;
-    const resObj = { games, username };
+    const resObj = { gamePrefs, username };
+    console.log({ resObj });
+    console.log('gameprefs:', resObj.gamePrefs)
     res.render('user-games.hbs', { resObj });
   } catch (error) {
     next(error);
@@ -31,16 +36,13 @@ myGamesRouter.get('/:gameId/add', async (req, res, next) => {
   const { username } = req.user;
 
   const resObj = { name, img_url, platforms, username };
-// query gamePrefs. Necessario para put
+  // query gamePrefs. Necessario para put
   // const { _id: userId } = req.user;
-  // // lala
-  // // TODO: voltar nisso quando tiver collection game prefs
   // const gamePrefs = await GamePrefs.find({ gameId: req.gameId, userId });
   // console.log('gameprefs: ', gamePrefs);
   res.render('user-game-edit-form.hbs', resObj);
 });
 
-// precisa cair nessa rota quando estiver adicionando pela primeira vez
 myGamesRouter.post('/:gameId/add', async (req, res) => {
   try {
     const gameId = req.gameId;
@@ -54,12 +56,16 @@ myGamesRouter.post('/:gameId/add', async (req, res) => {
       moreInfo,
     });
     try {
+      // save gamePrefs for this game Id and userId
       await newGamePref.save();
+      // save game in user array
+      await Users.findByIdAndUpdate(userId, { $push: { games: gameId } });
     } catch (error) {
       console.log(error);
     }
+
     const gamePrefs = await GamePrefs.find({ gameId, userId });
-    console.log('gameprefsOfUser: ', gamePrefs);
+    console.log('gameprefsOfUser salvo! Olha: ', gamePrefs);
     res.redirect('../');
   } catch (error) {
     next(error);
