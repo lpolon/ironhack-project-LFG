@@ -1,16 +1,13 @@
 <div class="container">
-  <div class="row">
-    <div class="col-lg-10 col-xl-9 mx-auto">
-      <div class="card card-signin  w-100 h-100 flex-row my-5">
-        <div class="card-img-left-addgame  d-none d-md-flex ">
-          <img class="imagemonica w-100 h-100 p-3" src="{{gamePrefs.gameId.img_url}}"
-            alt="{{gamePrefs.gameId.name}} image">
-        </div>
-        <div class="card-body">
-          <h5 class="card-title text-center">{{gamePrefs.gameId.name}}</h5>
-
-          <form action="./edit" method="post" class="form-signin">
-            <div class="form-label-group">
+    <div class="row">
+      <div class="col-lg-10 col-xl-9 mx-auto">
+        <div class="card card-signin  w-100 h-100 flex-row my-5">
+          <div class="card-img-left-addgame  d-none d-md-flex ">
+             <img class="imagemonica w-100 h-100 p-3" src="{{gamePrefs.gameId.img_url}}" alt="{{gamePrefs.gameId.name}} image">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title text-center">{{gamePrefs.gameId.name}}</h5>
+            <form action="./add" method="post" class="form-signin">
               <div class="form-label-group">
                 <label for="schedule" class="form-control">What time of day do you prefer to play?</label>
                 <br>

@@ -42,32 +42,41 @@
 
   <div class="bodyusercards">
     {{#each resObj.gamePrefs}}
-    <div class="card mb-3 border border-dark rounded" style="max-width: 80%;">
+    <div class="card mb-3 border border-dark rounded " style="max-width: 60%;">
       <div class="row no-gutters">
         <div class="col-md-4">
-          <img src="{{gameId.img_url}}" class="card-img" alt="teste">
+          <img src="{{gameId.img_url}}" class="card-img usergames" alt="teste">
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">{{gameId.name}}</h5>
+            <h3 class="card-title">{{gameId.name}}</h3>
             {{#each gameId.platforms}}
-            <p class="card-text">
-              textao estava aqui, mas melhor colocar em outro lugar
-            </p>
-            <p class="card-text"><small class="text-muted">{{name}}</small></p>
+            <p class="txtusergamesl">Plataform</p>
+            <p class="card-text txtusergamess"><small class="text-muted">{{name}}</small></p>
             {{/each}}
-            <p class="card-text">{{commitment}}</p>
-            <p class="card-text">{{schedule}}</p>
-            <p class="card-text">{{moreInfo}} ==> novo textao</p>
-            <button class="btn btn-light" type="submit">
-              <a href="/{{@root.resObj.username}}/games/{{_id}}/edit">edit</a>
-            </button>
-            <button class="btn btn-danger" type="submit">
-              <a href="/{{@root.resObj.username}}/games/{{_id}}/delete">delete</a>
-            </button>
+            <p class="card-text">
+              <p class="txtusergamesl">Gaming Style</p>
+              <p class="txtusergamess">{{commitment}}</p>
+              <br>
+              <p class="txtusergamesl">Available times</p>
+              <p class="txtusergamess" >{{schedule}}</pclass="txtusergamess">
+              <br>
+              <p class="txtusergamesl">Player Preferences</p>
+              <p class="txtusergamess">{{moreInfo}}</p>
+              <br>
+            </p>
+            <div class="btnusergames">
+            <a  href="/{{@root.resObj.username}}/games/{{_id}}/edit"><button id="editbtn" type="button" class="btn btn-lg btn-primary" type="submit">
+              Edit
+            </button></a>
+            <a href="/{{@root.resObj.username}}/games/{{_id}}/delete"><button class="btn btn-danger btn-lg" type="submit">
+              delete
+            </button></a>
+            </div>
           </div>
         </div>
       </div>
     </div>
     {{/each}}
   </div>
+  <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">

@@ -99,26 +99,30 @@ body {
 
 .bodyuserfindgames{
 	width: auto;
-	height: auto;
+  height: auto;
+  margin-top: 10px;
 	background :linear-gradient(to right, #20BDB7,white,#67FFFA ) 
 }
 
 .bodyuser{
 	width: auto;
-	height: auto;
+  height: auto;
+  margin-top: 10px;
 	background : #A9A9A9
 }
 
 .bodyusercards{
+  font-family: 'Poppins', sans-serif;
   padding: 13px;
 	width: auto;
-	height: auto;
+  height: auto;
+  margin-top: 10px;
   background :linear-gradient(to right, #4B93B8,white,#2EB6FA );
   display: flex; 
   flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: center;
-	align-items: center;
+	align-items: unset;
 	align-content: stretch;
 }
 
@@ -189,6 +193,11 @@ body {
 
 .card-signin .card-body {
   padding: 2rem;
+}
+
+.card-img .usergames {
+  width: 100%;
+  height: 100%;
 }
 
 .form-signin {
@@ -300,12 +309,38 @@ body {
 /* Card user games*/
 
 
+.btnusergames {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+#editbtn {
+margin-right: 10px;
+}
+
+.txtusergamess {
+  font-size: medium;
+  font-weight: 500;
+}
+
+.txtusergamesl {
+  font-size: large;
+  font-weight: 600;
+}
 
 
+form .form-label-group .form-control::placeholder{
+  color: #999
 
+}
 
-
-
+.page .menu__group a:hover {
+color:#7AEAAB
+}
 
 
 
