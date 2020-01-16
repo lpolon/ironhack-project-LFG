@@ -5,7 +5,9 @@ const UserSchema = new Schema(
   {
     username: String,
     password: String,
+    // TODO: file upload for perfil photo?
     perfilPhoto: String,
+    // TODO: remove email, gameSchedule.
     email: String,
     contactChannels: [String],
     gameSchedules: {

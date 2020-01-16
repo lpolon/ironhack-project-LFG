@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const gamesSchema = new mongoose.Schema({
+  // TODO: remove IDs
   id: Number,
   name: String,
   platforms: [{ id: Number, name: String }],

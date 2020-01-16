@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "node ./models/seeds/SocialLinksSeedToDb ; node ./models/seeds/GamesSeedToDb.js ; nodemon ./entry-point.js",
-    "start": "nodemon ./entry-point.js"
+    "dev": "nodemon ./entry-point.js",
+    "start": "node ./entry-point.js"
   },
   "dependencies": {
     "bcrypt": "^3.0.7",
