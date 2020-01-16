@@ -56,9 +56,7 @@ myGamesRouter.post('/:gameId/add', async (req, res) => {
       moreInfo,
     });
     try {
-      // save gamePrefs for this game Id and userId
       await newGamePref.save();
-      // save game in user array
       await Users.findByIdAndUpdate(userId, { $push: { games: gameId } });
     } catch (error) {
       console.log(error);
@@ -71,6 +69,8 @@ myGamesRouter.post('/:gameId/add', async (req, res) => {
     next(error);
   }
 });
+
+// fazer delete e put
 
 // criar uma rota de .put quando
 
