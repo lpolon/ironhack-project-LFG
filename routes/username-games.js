@@ -17,8 +17,6 @@ myGamesRouter.get('/', isUserGameArrEmpty, async (req, res, next) => {
     //  .sort({createdAt: 'desc'})
     const { username } = req.user;
     const resObj = { gamePrefs, username };
-    console.log({ resObj });
-    console.log('gameprefs:', resObj.gamePrefs)
     res.render('user-games.hbs', { resObj });
   } catch (error) {
     next(error);
@@ -31,7 +29,6 @@ myGamesRouter.param('gameId', (req, res, next, gameIdParam) => {
 });
 
 myGamesRouter.get('/:gameId/add', async (req, res, next) => {
-  // get game;
   const { name, img_url, platforms } = await Games.findById(req.gameId);
   const { username } = req.user;
 
@@ -56,21 +53,35 @@ myGamesRouter.post('/:gameId/add', async (req, res) => {
       moreInfo,
     });
     try {
-      // save gamePrefs for this game Id and userId
-      await newGamePref.save();
-      // save game in user array
+      // TODO: new Id to view
+      const newId = await newGamePref.save();
+      console.log('newId of saved document?', newId)
       await Users.findByIdAndUpdate(userId, { $push: { games: gameId } });
     } catch (error) {
       console.log(error);
     }
 
     const gamePrefs = await GamePrefs.find({ gameId, userId });
-    console.log('gameprefsOfUser salvo! Olha: ', gamePrefs);
     res.redirect('../');
   } catch (error) {
     next(error);
   }
 });
+
+myGamesRouter.get('/:gameId/edit', (req, res, next) => {
+  // devolver form com infos e botoes arrumados
+});
+
+// put ou post?
+myGamesRouter.put('/:gameId/edit', (req, res, next) => {
+  // atualizar inputados
+});
+
+myGamesRouter.get('/:gameId/delete', (req, res, next) => {
+  // GamePrefs.findOneAndDelete()
+})
+
+// fazer delete e put
 
 // criar uma rota de .put quando
 

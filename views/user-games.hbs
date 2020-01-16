@@ -3,7 +3,7 @@
     <ul class="menu__list">
       <!--Adicionar photo de perfil.-->
       <li class="menu__group"><img id="perfilphoto" src="/image/batman_hero_avatar_comics-512.png" alt="some text"></li>
-      <li class="menu__group"><a href="#"  class="menu__link username">{{resObj.username}}</a href="#" ></li>
+      <li class="menu__group"><a href="#" class="menu__link username">{{resObj.username}}</a href="#"></li>
       <li class="menu__group"><a href='./games' class="menu__link">Meus jogos</a></li>
       <li class="menu__group"><a href="/find-games" class="menu__link">Adicionar jogos</a></li>
       <li class="menu__group"><a href="./friends" class="menu__link">Meus amigos</a></li>
@@ -15,7 +15,7 @@
 
 
 
-{{!-- </div>
+  {{!-- </div>
 <div class="bodyuser">
  <div class="container">
     <div class="row mb-5"> 
@@ -40,28 +40,34 @@
   </div>
 </div> --}}
 
-<div class="bodyusercards"> 
-  {{#each resObj.gamePrefs}} 
-<div class="card mb-3 border border-dark rounded" style="max-width: 80%;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      <img src="{{gameId.img_url}}" class="card-img" alt="teste">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">{{gameId.name}}</h5>
-       {{#each gameId.platforms}}
-        <p class="card-text">
-          textao estava aqui, mas melhor colocar em outro lugar
-          </p>
-        <p class="card-text"><small class="text-muted">{{name}}</small></p>
-        {{/each}}
-<p class="card-text">{{commitment}}</p>
-<p class="card-text">{{schedule}}</p>
-<p class="card-text">{{moreInfo}} ==> novo textao</p>
+  <div class="bodyusercards">
+    {{#each resObj.gamePrefs}}
+    <div class="card mb-3 border border-dark rounded" style="max-width: 80%;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="{{gameId.img_url}}" class="card-img" alt="teste">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{gameId.name}}</h5>
+            {{#each gameId.platforms}}
+            <p class="card-text">
+              textao estava aqui, mas melhor colocar em outro lugar
+            </p>
+            <p class="card-text"><small class="text-muted">{{name}}</small></p>
+            {{/each}}
+            <p class="card-text">{{commitment}}</p>
+            <p class="card-text">{{schedule}}</p>
+            <p class="card-text">{{moreInfo}} ==> novo textao</p>
+            <button class="btn btn-light" type="submit">
+              <a href="./games/{{_id}}/edit">edit</a>
+            </button>
+            <button class="btn btn-danger" type="submit">
+              <a href="./games/{{_id}}/delete">delete</a>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
+    {{/each}}
   </div>
-</div>
- {{/each}}
-</div>
