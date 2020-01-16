@@ -23,6 +23,7 @@ isUserGameArrEmpty,
 // push game Id to User,
 // redirect to /:username/games
 gamesRouter.get('/:_id/add', async (req, res, next) => {
+  // TODO: Essa lógica precisa ser passada para a nova rota
   try {
     const gameId = req.params._id;
     const userId = req.user._id;

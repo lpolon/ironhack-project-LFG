@@ -25,19 +25,23 @@ myGamesRouter.param('gameId', (req, res, next, gameIdParam) => {
   next();
 });
 
-myGamesRouter.get('/:gameId/edit', async (req, res, next) => {
-  // get game info.
-  // show game info, but not edit it.
-  // game prefs do usuario para um jogo especifica
-  const { _id: userId } = req.user;
-  // TODO: voltar nisso quando tiver collection game prefs
-  const gamePrefs = await GamePrefs.find({ gameId: req.gameId, userId });
-  console.log('gameprefs: ', gamePrefs);
-  res.render('user-game-edit-form.hbs', { oi: 'oi' });
+myGamesRouter.get('/:gameId/add', async (req, res, next) => {
+  // get game;
+  const { name, img_url, platforms } = await Games.findById(req.gameId);
+  const { username } = req.user;
+
+  const resObj = { name, img_url, platforms, username };
+// query gamePrefs. Necessario para put
+  // const { _id: userId } = req.user;
+  // // lala
+  // // TODO: voltar nisso quando tiver collection game prefs
+  // const gamePrefs = await GamePrefs.find({ gameId: req.gameId, userId });
+  // console.log('gameprefs: ', gamePrefs);
+  res.render('user-game-edit-form.hbs', resObj);
 });
 
 // precisa cair nessa rota quando estiver adicionando pela primeira vez
-myGamesRouter.post('/:gameId/edit', async (req, res) => {
+myGamesRouter.post('/:gameId/add', async (req, res) => {
   try {
     const gameId = req.gameId;
     const { _id: userId } = req.user;
@@ -52,10 +56,10 @@ myGamesRouter.post('/:gameId/edit', async (req, res) => {
     try {
       await newGamePref.save();
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
     const gamePrefs = await GamePrefs.find({ gameId, userId });
-  console.log('gameprefsOfUser: ', gamePrefs);
+    console.log('gameprefsOfUser: ', gamePrefs);
     res.redirect('../');
   } catch (error) {
     next(error);
