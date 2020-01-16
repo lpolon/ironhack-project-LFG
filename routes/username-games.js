@@ -59,7 +59,7 @@ myGamesRouter.post('/:gameId/add', async (req, res) => {
       console.log(error);
     }
     // TODO: conferir todas as rotas relativas nos views e rotas
-    res.redirect('../');
+    res.redirect(`/${req.user.username}/games`);
   } catch (error) {
     next(error);
   }
@@ -70,12 +70,27 @@ myGamesRouter.param('gamePrefId', (req, res, next, gamePrefIdParam) => {
   next();
 });
 
-myGamesRouter.get('/:gamePrefId/edit', (req, res, next) => {
+myGamesRouter.get('/:gamePrefId/edit', async (req, res, next) => {
+  const { _id: userId } = req.user;
+  const gamePrefs = await GamePrefs.findById(req.gamePrefId).populate('gameId');
+  const { username } = req.user;
+  resObj = { username, gamePrefs };
+  console.log('my res Obj:', resObj);
+  console.log('my game prefs: ', gamePrefs);
+  res.render('user-game-edit-form.hbs', resObj);
   // devolver form com infos e botoes arrumados
 });
 
-myGamesRouter.post('/:gamePrefId/edit', (req, res, next) => {
-  // atualizar inputados
+myGamesRouter.post('/:gamePrefId/edit', async (req, res, next) => {
+  const { schedule, commitment, moreInfo } = req.body;
+  await GamePrefs.findByIdAndUpdate(req.gamePrefId,
+    {
+    schedule,
+    commitment,
+    moreInfo,
+  }
+  );
+  res.redirect(`/${req.user.username}/games`);
 });
 
 myGamesRouter.get('/:gamePrefId/delete', async (req, res, next) => {
