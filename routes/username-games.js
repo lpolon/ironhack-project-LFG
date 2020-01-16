@@ -36,7 +36,6 @@ myGamesRouter.get('/:gameId/add', async (req, res, next) => {
   // query gamePrefs. Necessario para put
   // const { _id: userId } = req.user;
   // const gamePrefs = await GamePrefs.find({ gameId: req.gameId, userId });
-  // console.log('gameprefs: ', gamePrefs);
   res.render('user-game-edit-form.hbs', resObj);
 });
 
@@ -54,32 +53,39 @@ myGamesRouter.post('/:gameId/add', async (req, res) => {
     });
     try {
       // TODO: new Id to view
-      const newId = await newGamePref.save();
-      console.log('newId of saved document?', newId)
+      await newGamePref.save();
       await Users.findByIdAndUpdate(userId, { $push: { games: gameId } });
     } catch (error) {
       console.log(error);
     }
-
-    const gamePrefs = await GamePrefs.find({ gameId, userId });
     res.redirect('../');
   } catch (error) {
     next(error);
   }
 });
 
-myGamesRouter.get('/:gameId/edit', (req, res, next) => {
+// TODO: conferir
+myGamesRouter.param('gamePrefId', (req, res, next, gamePrefIdParam) => {
+  req.gamePrefId = gamePrefIdParam;
+  next();
+});
+
+myGamesRouter.get('/:gamePrefId/edit', (req, res, next) => {
   // devolver form com infos e botoes arrumados
 });
 
-// put ou post?
-myGamesRouter.put('/:gameId/edit', (req, res, next) => {
+myGamesRouter.post('/:gamePrefId/edit', (req, res, next) => {
   // atualizar inputados
 });
 
-myGamesRouter.get('/:gameId/delete', (req, res, next) => {
-  // GamePrefs.findOneAndDelete()
-})
+myGamesRouter.get('/:gamePrefId/delete', async (req, res, next) => {
+  console.log('oi, rota')
+  console.log('id ok?', req.gamePrefId)
+  const deletedItem = await GamePrefs.findByIdAndDelete(req.gamePrefId);
+  console.log('deleted!', deletedItem)
+  res.redirect(`/${req.user.username}/games`);
+  // check if still in my games and return
+});
 
 // fazer delete e put
 
