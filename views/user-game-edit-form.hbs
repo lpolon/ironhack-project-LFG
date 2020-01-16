@@ -1,4 +1,4 @@
-<section>
+{{!-- <section>
   <h1>{{name}}</h1>
   <img src="{{img_url}}" alt="{{name}} image">
   <br>
@@ -6,9 +6,7 @@
   <span>{{name}}</span>
   {{/each}}
 </section>
-{{!-- //TODO: if here for add or edit --}}
 <form action="./add" method="post">
-{{!-- dropdown 4 options --}}
 <h2>For this game:</h2>
 <label for="schedule">What time of day do you prefer to play?</label>
 <br>
@@ -30,6 +28,120 @@
 <br>
 <textarea name="moreInfo" id="moreInfo" cols="30" rows="3" maxlength="200"></textarea>
 <br>
-{{!-- //TODO: if here for add or edit --}}
 <input type="submit" value="add game info">
-</form>
+</form> --}}
+
+
+{{!-- {{#each platforms}}
+  <span>{{name}}</span>
+  {{/each}} --}}
+
+
+{{!-- 
+
+<div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-xl-9 mx-auto">
+        <div class="card card-signin flex-row my-5">
+          <div class="card-img-left-addgame d-none d-md-flex">
+            <img src="{{img_url}}" alt="{{name}} image">
+            </div>
+                <form action="./add" method="post" class="form-signin">
+                <h5>For this game:</h5>
+                <div class="form-label-group">
+                <label for="schedule" >What time of day do you prefer to play?</label>
+                <br>
+                <select name="schedule" id="schedule">
+                  <option value="morning">morning</option>
+                  <option value="evening">evening</option>
+                  <option value="afternoon">afternoon</option>
+                  <option value="ALLNIGHT">ALL NIGHT LONG</option>
+                </select>
+                </div>
+                <br>
+                <div class="form-label-group">
+                <label for="commitment">What kind of commitment are you looking for?</label>
+                <br>
+                <select name="commitment" id="commitment">
+                  <option value="for fun">to have a good time</option>
+                  <option value="competitive">get better and win!</option>
+                </select>
+                </div>
+                <br>
+                <div class="form-label-group">
+                <label for="moreInfo">Would you like to add something else? (max 200 characters)</label>
+                <br>
+                <textarea name="moreInfo" id="moreInfo" cols="30" rows="3" maxlength="200"></textarea>
+                <br>
+                </div>
+                <input type="submit"  class="btn btn-lg btn-primary btn-block text-uppercase"  value="add game">
+                </form>
+        </div>
+      </div>
+  </div>
+</div> --}}
+
+
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-xl-9 mx-auto">
+        <div class="card card-signin  w-100 h-100 flex-row my-5">
+          <div class="card-img-left-addgame  d-none d-md-flex ">
+             <img class="imagemonica w-100 h-100 p-3" src="{{img_url}}" alt="{{name}} image">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title text-center">{{name}}</h5>
+            <form action="./add" method="post" class="form-signin">
+              <div class="form-label-group">
+                <div class="form-label-group">
+                <label for="schedule" class="form-control" >What time of day do you prefer to play?</label>
+                <br>
+                <br>
+                <br>
+                <select name="schedule" class="form-control" id="schedule">
+                  <option value="morning">morning</option>
+                  <option value="evening">evening</option>
+                  <option value="afternoon">afternoon</option>
+                  <option value="ALLNIGHT">ALL NIGHT LONG</option>
+                </select>
+                </div>
+              </div>  
+              <hr>
+
+              <div class="form-label-group">
+                 <label for="commitment"  class="form-control">What kind of commitment are you looking for?</label>
+                <br>
+                <br>
+                <br>
+                <select name="commitment"  class="form-control" id="commitment">
+                  <option value="for fun">to have a good time</option>
+                  <option value="competitive">get better and win!</option>
+                </select>
+              </div>
+              <hr>
+
+              <div class="form-label-group">
+                 <label for="moreInfo" class="form-control" >Would you like to add something else? (max 200 characters)</label>
+                <br>
+                <br>
+                <br>
+                <textarea class="form-control"  name="moreInfo" id="moreInfo" cols="30" rows="3" maxlength="200"></textarea>
+                <br>
+              </div>
+
+              <hr class="my-4">
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" value="add game" >ADD GAME</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+
+
+
+
+
+
