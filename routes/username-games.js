@@ -36,7 +36,7 @@ myGamesRouter.get('/:gameId/add', async (req, res, next) => {
   // query gamePrefs. Necessario para put
   // const { _id: userId } = req.user;
   // const gamePrefs = await GamePrefs.find({ gameId: req.gameId, userId });
-  res.render('user-game-edit-form.hbs', resObj);
+  res.render('user-game-add-form.hbs', resObj);
 });
 
 myGamesRouter.post('/:gameId/add', async (req, res) => {
@@ -58,13 +58,13 @@ myGamesRouter.post('/:gameId/add', async (req, res) => {
     } catch (error) {
       console.log(error);
     }
+    // TODO: conferir todas as rotas relativas nos views e rotas
     res.redirect('../');
   } catch (error) {
     next(error);
   }
 });
 
-// TODO: conferir
 myGamesRouter.param('gamePrefId', (req, res, next, gamePrefIdParam) => {
   req.gamePrefId = gamePrefIdParam;
   next();
@@ -79,21 +79,10 @@ myGamesRouter.post('/:gamePrefId/edit', (req, res, next) => {
 });
 
 myGamesRouter.get('/:gamePrefId/delete', async (req, res, next) => {
-  console.log('oi, rota')
-  console.log('id ok?', req.gamePrefId)
-  const deletedItem = await GamePrefs.findByIdAndDelete(req.gamePrefId);
-  console.log('deleted!', deletedItem)
+  await GamePrefs.findByIdAndDelete(req.gamePrefId);
   res.redirect(`/${req.user.username}/games`);
-  // check if still in my games and return
 });
 
-// fazer delete e put
-
-// criar uma rota de .put quando
-
-// colocar um IF na view para carregar o botao e rotas diferentes
-
-// buscar prefs por jogo
 /*
 GamePrefs.find({userId: userId})
 buscar todas as prefs de um usuário e popular os jogos gameId.
