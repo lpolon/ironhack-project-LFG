@@ -1,8 +1,13 @@
-{{!-- //TODO: confirmar esse action. Redirecionar para user/games --}}
 <section>
-  <h1>game info</h1>
+  <h1>{{name}}</h1>
+  <img src="{{img_url}}" alt="{{name}} image">
+  <br>
+  {{#each platforms}}
+  <span>{{name}}</span>
+  {{/each}}
 </section>
-<form action="../../games" method="post">
+{{!-- //TODO: if here for add or edit --}}
+<form action="./add" method="post">
 {{!-- dropdown 4 options --}}
 <h2>For this game:</h2>
 <label for="schedule">What time of day do you prefer to play?</label>
@@ -25,5 +30,6 @@
 <br>
 <textarea name="moreInfo" id="moreInfo" cols="30" rows="3" maxlength="200"></textarea>
 <br>
+{{!-- //TODO: if here for add or edit --}}
 <input type="submit" value="add game info">
 </form>
