@@ -1,4 +1,3 @@
-
 <div class="container">
     <div class="row">
       <div class="col-lg-10 col-xl-9 mx-auto">
@@ -7,56 +6,53 @@
              <img class=" w-100 h-100 p-3" src="{{img_url}}" alt="{{name}} image">
           </div>
           <div class="card-body">
-            <h5 class="card-title text-center">{{name}}</h5>
+            <h5 class="card-title text-center">{{gamePrefs.gameId.name}}</h5>
             <form action="./add" method="post" class="form-signin">
               <div class="form-label-group">
-                <div class="form-label-group">
-                <label for="schedule" class="form-control" >What time of day do you prefer to play?</label>
+                <label for="schedule" class="form-control">What time of day do you prefer to play?</label>
                 <br>
                 <br>
                 <br>
                 <select name="schedule" class="form-control" id="schedule">
+                  <option value="{{gamePrefs.schedule}}">{{gamePrefs.schedule}}</option>
                   <option value="morning">morning</option>
                   <option value="evening">evening</option>
                   <option value="afternoon">afternoon</option>
                   <option value="ALLNIGHT">ALL NIGHT LONG</option>
                 </select>
-                </div>
-              </div>  
-              <hr>
-
-              <div class="form-label-group">
-                 <label for="commitment"  class="form-control">What kind of commitment are you looking for?</label>
-                <br>
-                <br>
-                <br>
-                <select name="commitment"  class="form-control" id="commitment">
-                  <option value="for fun">to have a good time</option>
-                  <option value="competitive">get better and win!</option>
-                </select>
               </div>
-              <hr>
+            </div>
+            <hr>
 
-              <div class="form-label-group">
-                 <label for="moreInfo" class="form-control" >Would you like to add something else? (max 200 characters)</label>
-                <br>
-                <br>
-                <br>
-                <textarea class="form-control"  name="moreInfo" id="moreInfo" cols="30" rows="3" maxlength="200"></textarea>
-                <br>
-              </div>
+            <div class="form-label-group">
+              <label for="commitment" class="form-control">What kind of commitment are you looking for?</label>
+              <br>
+              <br>
+              <br>
+              <select name="commitment" class="form-control" id="commitment">
+                <option value="{{gamePrefs.commitment}}">{{gamePrefs.commitment}}</option>
+                <option value="for fun">for fun</option>
+                <option value="competitive">competitive</option>
+              </select>
+            </div>
+            <hr>
 
-              <hr class="my-4">
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" value="add game" >ADD GAME</button>
-            </form>
-          </div>
+            <div class="form-label-group">
+              <label for="moreInfo" class="form-control">Would you like to add something else? (max 200
+                characters)</label>
+              <br>
+              <br>
+              <br>
+              <textarea class="form-control" name="moreInfo" id="moreInfo" cols="30" rows="3"
+                maxlength="200">{{gamePrefs.moreInfo}}</textarea>
+              <br>
+            </div>
+
+            <hr class="my-4">
+            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">UPDATE</button>
+          </form>
         </div>
       </div>
     </div>
- 
-
-
-
-
-
-
+  </div>
+</div>
