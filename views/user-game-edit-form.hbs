@@ -1,0 +1,29 @@
+{{!-- //TODO: confirmar esse action. Redirecionar para user/games --}}
+<section>
+  <h1>game info</h1>
+</section>
+<form action="../../games" method="post">
+{{!-- dropdown 4 options --}}
+<h2>For this game:</h2>
+<label for="schedule">What time of day do you prefer to play?</label>
+<br>
+<select name="schedule" id="schedule">
+  <option value="morning">morning</option>
+  <option value="evening">evening</option>
+  <option value="afternoon">afternoon</option>
+  <option value="ALLNIGHT">ALL NIGHT LONG</option>
+</select>
+<br>
+<label for="commitment">What kind of commitment are you looking for?</label>
+<br>
+<select name="commitment" id="commitment">
+  <option value="for fun">to have a good time</option>
+  <option value="competitive">get better and win!</option>
+</select>
+<br>
+<label for="moreInfo">Would you like to add something else? (max 200 characters)</label>
+<br>
+<textarea name="moreInfo" id="moreInfo" cols="30" rows="3" maxlength="200"></textarea>
+<br>
+<input type="submit" value="add game info">
+</form>

@@ -8,7 +8,7 @@ mongoose.connect(process.env.MONGODB_URI, {
   useUnifiedTopology: true,
 });
 
-Games.collection.drop(); // redo DB
+// Games.collection.drop(); // redo DB
 
 Games.create(gamesSeed)
   .then(() => {

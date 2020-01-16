@@ -6,7 +6,7 @@ mongoose.connect(process.env.MONGODB_URI, {
   useUnifiedTopology: true,
 });
 
-SocialLinks.collection.drop(); // redo DB
+// SocialLinks.collection.drop(); // redo DB
 // TODO: base dos links para popular formulários para preencher links
 const seed = [
   {
