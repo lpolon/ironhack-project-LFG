@@ -12,9 +12,6 @@
   flex-grow: 1;
 }
 
-.menu__link{
-  display: block;
-}
 
 #perfilphoto {
 	width: 69px;
@@ -29,6 +26,7 @@
 }
 
 .menu__link{
+  display: block;
   padding: 2rem 1.5rem;
 
   font-weight: 700;
@@ -37,6 +35,10 @@
   text-transform: uppercase;
 }
 
+
+.menu__link .username{ 
+color: #fff;
+}
 /* states */
 .menu__link:focus{
   outline: 2px solid #fff;
@@ -87,20 +89,38 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-	background-color:	#bdc3c7
+	background-color:	 #A9A9A9
 
 }
 
 
 
 
+
+.bodyuserfindgames{
+	width: auto;
+	height: auto;
+	background :linear-gradient(to right, #20BDB7,white,#67FFFA ) 
+}
 
 .bodyuser{
 	width: auto;
 	height: auto;
-	background-color: blueviolet;
+	background : #A9A9A9
 }
 
+.bodyusercards{
+  padding: 13px;
+	width: auto;
+	height: auto;
+  background :linear-gradient(to right, #4B93B8,white,#2EB6FA );
+  display: flex; 
+  flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+}
 
 
 .row.content {height: 450px}
@@ -111,11 +131,6 @@ body {
 	height: 100%;
 }
 
-footer {
-	background-color: #555;
-	color: white;
-	padding: 15px;
-}
 
 /* INDEX PAGE */
 
