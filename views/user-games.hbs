@@ -14,32 +14,6 @@
 
 
 
-
-  {{!-- </div>
-<div class="bodyuser">
- <div class="container">
-    <div class="row mb-5"> 
-      {{resObj.username}}
-      {{#each resObj.games}} 
-      <div class="col-md-4">
-        <div class="card text-center mb-3">
-          <img class="card-img-top" src="{{img_url}}" alt="Card image game">
-          <div class="card-body">
-            <h5 class="card-title">{{name}}</h5>
-            {{#each platforms}}
-            <p class="card-text">{{name}}</p>
-            {{/each}}
-            <button type="submit">
-              <a href="./games/{{_id}}/edit">edit info</a>
-            </button>
-          </div>
-        </div>
-      </div>
-      {{/each}}
-    </div>
-  </div>
-</div> --}}
-
   <div class="bodyusercards">
     {{#each resObj.gamePrefs}}
     <div class="card mb-3 border border-dark rounded " style="max-width: 60%;">
