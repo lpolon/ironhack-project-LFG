@@ -9,7 +9,13 @@ indexRouter.use('/find-games', require('./findGames'));
 
 const ensureRightUser = require('../middlewares/ensureRightUser');
 
-indexRouter.use('/:username', ensureLoggedIn(), ensureRightUser, require('./user'));
+// TODO: descomentar rotas
+indexRouter.use(
+  '/:username',
+  ensureLoggedIn(),
+  ensureRightUser,
+  require('./user')
+);
 /* GET home page. */
 
 indexRouter.get('/', (req, res, next) => {
