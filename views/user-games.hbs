@@ -13,11 +13,11 @@
     </ul>
   </nav>
 </div>
-{{!-- <div class="bodyuser">
+<div class="bodyuser">
  <div class="container">
-    <div class="row mb-5"> --}}
-      {{!-- {{resObj.username}} --}}
-      {{!-- {{#each resObj.games}}
+    <div class="row mb-5"> 
+      {{resObj.username}}
+      {{#each resObj.games}} 
       <div class="col-md-4">
         <div class="card text-center mb-3">
           <img class="card-img-top" src="{{img_url}}" alt="Card image game">
@@ -35,18 +35,6 @@
       {{/each}}
     </div>
   </div>
-</div> --}}
+</div>
 
-<div class="page">
-
-<div class = "container-usergame">
-  <div class="card-columns">
-  {{#each resObj.games}}
-    <div class="card "> <img class="card-img-top" src="{{img_url}}" alt="Card image cap"> </div>
-{{/each}}
-</div>
-</div>
-</div>
-</div>
-</div>
 
