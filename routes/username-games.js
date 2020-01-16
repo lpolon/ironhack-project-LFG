@@ -6,14 +6,18 @@ const GamePrefs = require('../models/gamePrefs');
 const Games = require('../models/Games');
 
 myGamesRouter.get('/', isUserGameArrEmpty, async (req, res, next) => {
-  const { status } = req.noGamesFlag;
-  if (status) {
-    res.redirect('/find-games');
+  try {
+    const { status } = req.noGamesFlag;
+    if (status) {
+      res.redirect('/find-games');
+    }
+    const { games } = await Users.findById(req.user._id).populate('games');
+    const { username } = req.user;
+    const resObj = { games, username };
+    res.render('user-games.hbs', { resObj });
+  } catch (error) {
+    next(error);
   }
-  const { games } = await Users.findById(req.user._id).populate('games');
-  const { username } = req.user;
-  const resObj = { games, username };
-  res.render('user-games.hbs', { resObj });
 });
 
 myGamesRouter.param('gameId', (req, res, next, gameIdParam) => {
