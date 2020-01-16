@@ -38,20 +38,31 @@ myGamesRouter.get('/:gameId/edit', async (req, res, next) => {
 
 // precisa cair nessa rota quando estiver adicionando pela primeira vez
 myGamesRouter.post('/:gameId/edit', async (req, res) => {
-  const { gameId } = req.params;
-  // descontruir id do users req.user
-  // descontruir req.body
-  const newGamePref = new GamePrefs({
-    gameId,
-    userId,
-    moreInfo,
-    schedule,
-    mode,
-  });
-  await newGamePref.save();
+  try {
+    const gameId = req.gameId;
+    const { _id: userId } = req.user;
+    const { schedule, commitment, moreInfo } = req.body;
+    const newGamePref = new GamePrefs({
+      gameId,
+      userId,
+      schedule,
+      commitment,
+      moreInfo,
+    });
+    try {
+      await newGamePref.save();
+    } catch (error) {
+      console.log(error)
+    }
+    const gamePrefs = await GamePrefs.find({ gameId, userId });
+  console.log('gameprefsOfUser: ', gamePrefs);
+    res.redirect('../');
+  } catch (error) {
+    next(error);
+  }
 });
 
-// criar uma rota de .put quando 
+// criar uma rota de .put quando
 
 // colocar um IF na view para carregar o botao e rotas diferentes
 
