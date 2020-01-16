@@ -4,7 +4,7 @@
       <!--Adicionar photo de perfil.-->
       <li class="menu__group"><img id="perfilphoto" src="/image/batman_hero_avatar_comics-512.png" alt="some text"></li>
       {{!-- //TODO: Username precisa estar disponível para levar para o link correto. --}}
-      <li class="menu__group"><a class="menu__link">{{resObj.username}}</a></li>
+      <li class="menu__group"><a href="#" class="menu__link username">{{resObj.username}}</a></li>
       <li class="menu__group"><a href='{{resObj.username}}/games' class="menu__link">Meus jogos</a></li>
       <li class="menu__group"><a href="/find-games" class="menu__link">Adicionar jogos</a></li>
       <li class="menu__group"><a href="./friends" class="menu__link">Meus amigos</a></li>
@@ -13,7 +13,7 @@
     </ul>
   </nav>
 </div>
-<div class="bodyuser">
+<div class="bodyuserfindgames">
 
  
 {{#if resObj.status}}
