@@ -74,22 +74,30 @@ myGamesRouter.get('/:gamePrefId/edit', async (req, res, next) => {
   const { _id: userId } = req.user;
   const gamePrefs = await GamePrefs.findById(req.gamePrefId).populate('gameId');
   const { username } = req.user;
-  resObj = { username, gamePrefs };
-  console.log('my res Obj:', resObj);
-  console.log('my game prefs: ', gamePrefs);
-  res.render('user-game-edit-form.hbs', resObj);
-  // devolver form com infos e botoes arrumados
+  const {
+    schedule,
+    moreInfo,
+    commitment,
+    gameId: { img_url, name },
+  } = gamePrefs;
+  res.render('user-game-edit-form.hbs', {
+    username,
+    schedule,
+    moreInfo,
+    commitment,
+    img_url,
+    name,
+    userId,
+  });
 });
 
 myGamesRouter.post('/:gamePrefId/edit', async (req, res, next) => {
   const { schedule, commitment, moreInfo } = req.body;
-  await GamePrefs.findByIdAndUpdate(req.gamePrefId,
-    {
+  await GamePrefs.findByIdAndUpdate(req.gamePrefId, {
     schedule,
     commitment,
     moreInfo,
-  }
-  );
+  });
   res.redirect(`/${req.user.username}/games`);
 });
 
