@@ -3,11 +3,8 @@
     <ul class="menu__list">
       <!--Adicionar photo de perfil.-->
       <li class="menu__group"><img id="perfilphoto" src="/image/batman_hero_avatar_comics-512.png" alt="some text"></li>
-      <li class="menu__group"><a href="#" class="menu__link username">{{resObj.username}}</a href="#"></li>
-      <li class="menu__group"><a href='./games' class="menu__link">Meus jogos</a></li>
-      <li class="menu__group"><a href="/find-games" class="menu__link">Adicionar jogos</a></li>
-      <li class="menu__group"><a href="./friends" class="menu__link">Meus amigos</a></li>
-      <li class="menu__group"><a href="/find-friends" class="menu__link">adicionar amigos</a></li>
+      <li class="menu__group"><a href="/{{resObj.username}}" class="menu__link username">Home</a></li>
+      <li class="menu__group"><a href="/find-games" class="menu__link">Add Gaming</a></li>
       <li class="menu__group"><a href="/logout" class="menu__link">logout</a></li>
     </ul>
   </nav>
@@ -40,10 +37,10 @@
               <br>
             </p>
             <div class="btnusergames">
-            <a  href="./games/{{_id}}/edit"><button id="editbtn" type="button" class="btn btn-lg btn-primary" type="submit">
+            <a  href="/{{@root.resObj.username}}/games/{{_id}}/edit"><button id="editbtn" type="button" class="btn btn-lg btn-success" type="submit">
               Edit
             </button></a>
-            <a href="./games/{{_id}}/delete"><button class="btn btn-danger btn-lg" type="submit">
+            <a href="/{{@root.resObj.username}}/games/{{_id}}/delete"><button class="btn btn-danger btn-lg" type="submit">
               delete
             </button></a>
             </div>
