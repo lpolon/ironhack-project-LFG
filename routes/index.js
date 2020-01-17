@@ -18,7 +18,6 @@ indexRouter.use(
 /* GET home page. */
 
 indexRouter.get('/', (req, res, next) => {
-  console.log(typeof req.user);
   if (typeof req.user === 'undefined') {
     res.render('index.hbs', { title: 'LFG | find game pals' });
     return

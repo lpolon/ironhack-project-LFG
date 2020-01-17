@@ -1,49 +1,54 @@
-
-
-
-<div class="containeruser">  
-<div class="bodyuserwellcome">
-  <h3>Hello {{username}} <br> Search now for players.</h3>
+<div class="page">
+  <nav class="menu">
+    <ul class="menu__list">
+      <!--Adicionar photo de perfil.-->
+      <li class="menu__group"><img id="perfilphoto" src="/image/batman_hero_avatar_comics-512.png" alt="some text"></li>
+      <li class="menu__group"><a href="/{{ownUserName}}" class="menu__link username">{{ownUserName}}</a></li>
+      <li class="menu__group"><a href='/{{ownUserName}}/games' class="menu__link">my games</a></li>
+      <li class="menu__group"><a href="/find-games" class="menu__link">find games</a></li>
+      <li class="menu__group"><a href='/{{ownUserName}}/lfg' class="menu__link">look for group</a></li>
+      <li class="menu__group"><a href="/logout" class="menu__link">logout</a></li>
+    </ul>
+  </nav>
 </div>
+
+<div class="containeruser">
+  <div class="bodyuserwellcome">
+    <h3>find players to play with!</h3>
+  </div>
 </div>
 
 <div class="bodyuser">
-{{#each resObj.gamePrefs}}
-    <div class="card mb-3 border border-dark rounded " style="max-width: 60%;">
-      <div class="row no-gutters">
-        <div class="col-md-4">
-          <img src="{{gameId.img_url}}" class="card-img usergames" alt="teste">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h3 class="card-title">{{gameId.name}}</h3>
-            {{#each gameId.platforms}}
-            <p class="txtusergamesl">Plataform</p>
-            <p class="card-text txtusergamess"><small class="text-muted">{{name}}</small></p>
-            {{/each}}
-            <p class="card-text">
-              <p class="txtusergamesl">Gaming Style</p>
-              <p class="txtusergamess">{{commitment}}</p>
-              <br>
-              <p class="txtusergamesl">Available times</p>
-              <p class="txtusergamess" >{{schedule}}</pclass="txtusergamess">
+  {{#each destructuredQueryResultArr}}
+  <div class="card mb-3 border border-dark rounded " style="max-width: 60%;">
+  <h3>user: {{username}}</h3>
+  <h3>contact: {{contactChannels}}</h3>
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="{{img_url}}" class="card-img usergames" alt="teste">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h3 class="card-title">{{name}}</h3>
+          {{#each platforms}}
+          <p class="txtusergamesl">Plataform</p>
+          <p class="card-text txtusergamess"><small class="text-muted">{{name}}</small></p>
+          {{/each}}
+          <p class="card-text">
+            <p class="txtusergamesl">Gaming Style</p>
+            <p class="txtusergamess">{{commitment}}</p>
+            <br>
+            <p class="txtusergamesl">Available times</p>
+            <p class="txtusergamess">{{schedule}}</pclass="txtusergamess">
               <br>
               <p class="txtusergamesl">Player Preferences</p>
               <p class="txtusergamess">{{moreInfo}}</p>
               <br>
             </p>
-            <div class="btnusergames">
-            <a  href="/{{@root.resObj.username}}/games/{{_id}}/edit"><button id="editbtn" type="button" class="btn btn-lg btn-success" type="submit">
-              Edit
-            </button></a>
-            <a href="/{{@root.resObj.username}}/games/{{_id}}/delete"><button class="btn btn-danger btn-lg" type="submit">
-              delete
-            </button></a>
-            </div>
-          </div>
         </div>
       </div>
     </div>
-    {{/each}}
+  </div>
+  {{/each}}
 </div>
 </div>

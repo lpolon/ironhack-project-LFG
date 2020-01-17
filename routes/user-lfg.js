@@ -9,26 +9,35 @@ userLfgRouter.use('/', async (req, res, next) => {
     const findAllGamePrefs = await GamePrefs.find({ gameId: { $in: games } })
       .sort({ updatedAt: 'desc' })
       .populate(['gameId', 'userId']);
-    const queryResult = findAllGamePrefs.filter(
+    const queryResultArr = findAllGamePrefs.filter(
       (obj) => obj.userId.username !== username
-      );
-      console.log(queryResult);
-      res.render('user-lfg.hbs')
+    );
+    const ownUserName = req.user.username
+    const destructuredQueryResultArr = queryResultArr.map((obj) => {
+      const {
+        commitment,
+        gameId: { name, platforms, img_url },
+        userId: { username, contactChannels },
+        schedule,
+        moreInfo,
+      } = obj;
+      return {
+        commitment,
+        name,
+        platforms,
+        img_url,
+        username,
+        contactChannels,
+        schedule,
+        moreInfo,
+      };
+    });
+    const resObj = {ownUserName, destructuredQueryResultArr}
+    res.render('user-lfg.hbs', resObj);
   } catch (error) {
-    next(error)
+    next(error);
     console.log(error);
   }
 });
-/*
-  res.render('user-game-edit-form.hbs', {
-    username,
-    schedule,
-    moreInfo,
-    commitment,
-    img_url,
-    name,
-    userId,
-  });
-*/
 
 module.exports = userLfgRouter;
