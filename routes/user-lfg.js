@@ -12,8 +12,8 @@ userLfgRouter.use('/', async (req, res, next) => {
     const queryResult = findAllGamePrefs.filter(
       (obj) => obj.userId.username !== username
       );
-      console.log(queryResult);
-      
+      // console.log(queryResult);
+      res.render('user-lfg.hbs')
   } catch (error) {
     next(error)
     console.log(error);

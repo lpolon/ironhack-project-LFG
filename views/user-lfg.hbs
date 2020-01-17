@@ -1,18 +1,14 @@
-<div class="page">
-  <nav class="menu">
-    <ul class="menu__list">
-      <!--Adicionar photo de perfil.-->
-      <li class="menu__group"><img id="perfilphoto" src="/image/batman_hero_avatar_comics-512.png" alt="some text"></li>
-      <li class="menu__group"><a href="/{{resObj.username}}" class="menu__link username">Home</a></li>
-      <li class="menu__group"><a href="/find-games" class="menu__link">Add Gaming</a></li>
-      <li class="menu__group"><a href="/logout" class="menu__link">logout</a></li>
-    </ul>
-  </nav>
 
 
 
-  <div class="bodyusercards">
-    {{#each resObj.gamePrefs}}
+<div class="containeruser">  
+<div class="bodyuserwellcome">
+  <h3>Hello {{username}} <br> Search now for players.</h3>
+</div>
+</div>
+
+<div class="bodyuser">
+{{#each resObj.gamePrefs}}
     <div class="card mb-3 border border-dark rounded " style="max-width: 60%;">
       <div class="row no-gutters">
         <div class="col-md-4">
@@ -49,4 +45,5 @@
       </div>
     </div>
     {{/each}}
-  </div>
+</div>
+</div>
