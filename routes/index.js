@@ -18,7 +18,11 @@ indexRouter.use(
 /* GET home page. */
 
 indexRouter.get('/', (req, res, next) => {
-  res.render('index.hbs', { title: 'LFG | find game pals' });
+  if(typeof req.user.username === undefined) {
+    res.render('index.hbs', { title: 'LFG | find game pals' });
+  } else {
+    res.redirect(`/${req.user.username}`)
+  }
 });
 
 module.exports = indexRouter;

@@ -8,7 +8,7 @@ const signupStrat = passport.authenticate('local-signup', {
 
 const loginStrat = passport.authenticate('local-login', {
   // middleware after /login post
-  // successRedirect: '/',
+  successRedirect: '/',
   failureRedirect: '/login',
   passReqToCallback: true,
 });

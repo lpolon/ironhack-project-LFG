@@ -6,8 +6,11 @@ const { loginStrat } = require('../middlewares/passport');
 loginRouter.get('/', (req, res) => {
   res.render('login.hbs');
 });
-loginRouter.post('/', ensureLoggedOut(), loginStrat, (req, res, next) => {
-  res.redirect(`/${req.user.username}`);
-});
+loginRouter.post('/', ensureLoggedOut(), 
+loginStrat
+//  (req, res, next) => {
+//   res.redirect(`/${req.user.username}`);
+// }
+);
 
 module.exports = loginRouter;

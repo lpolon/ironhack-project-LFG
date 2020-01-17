@@ -98,7 +98,7 @@ passport.use(
           return next(null, false);
         } else {
           // Destructure the body
-          const { username, email, password } = req.body;
+          const { username, email, password,contactChannels} = req.body;
           const hashPass = bcrypt.hashSync(
             password,
             bcrypt.genSaltSync(8),
@@ -108,6 +108,7 @@ passport.use(
             username,
             email,
             password: hashPass,
+            contactChannels,
           });
 
           newUser.save((err) => {
