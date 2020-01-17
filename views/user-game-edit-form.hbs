@@ -6,7 +6,7 @@
              <img class=" w-100 h-100 p-3" src="{{img_url}}" alt="{{name}} image">
           </div>
           <div class="card-body">
-            <h5 class="card-title text-center">{{gamePrefs.gameId.name}}</h5>
+            <h5 class="card-title text-center">{{name}}</h5>
             <form action="./add" method="post" class="form-signin">
               <div class="form-label-group">
                 <label for="schedule" class="form-control">What time of day do you prefer to play?</label>
@@ -14,7 +14,7 @@
                 <br>
                 <br>
                 <select name="schedule" class="form-control" id="schedule">
-                  <option value="{{gamePrefs.schedule}}">{{gamePrefs.schedule}}</option>
+                  <option value="{{schedule}}">{{schedule}}</option>
                   <option value="morning">morning</option>
                   <option value="evening">evening</option>
                   <option value="afternoon">afternoon</option>
@@ -30,7 +30,7 @@
               <br>
               <br>
               <select name="commitment" class="form-control" id="commitment">
-                <option value="{{gamePrefs.commitment}}">{{gamePrefs.commitment}}</option>
+                <option value="{{commitment}}">{{commitment}}</option>
                 <option value="for fun">for fun</option>
                 <option value="competitive">competitive</option>
               </select>
@@ -44,7 +44,7 @@
               <br>
               <br>
               <textarea class="form-control" name="moreInfo" id="moreInfo" cols="30" rows="3"
-                maxlength="200">{{gamePrefs.moreInfo}}</textarea>
+                maxlength="200">{{moreInfo}}</textarea>
               <br>
             </div>
 
@@ -56,9 +56,6 @@
     </div>
   </div>
 </div>
-
-
-
 <div class="container">
   <div class="row">
     <div class="col-lg-10 col-xl-9 mx-auto">
