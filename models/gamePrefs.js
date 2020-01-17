@@ -8,11 +8,11 @@ const gamePrefsSchema = new mongoose.Schema(
     moreInfo: String,
     schedule: {
       type: String,
-      enum: ['morning', 'evening', 'afternoon', 'ALLNIGHT LONG'],
+      // enum: ['morning', 'evening', 'afternoon', 'ALLNIGHT LONG'],
     },
     commitment: {
       type: String,
-      enum: ['for fun', 'competitive'],
+      // enum: ['for fun', 'competitive'],
       default: 'for fun',
     },
   },
