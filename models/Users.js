@@ -3,13 +3,12 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema(
   {
-    username: String,
+    username: { type: String, unique: true },
     password: String,
     // TODO: file upload for perfil photo?
     perfilPhoto: String,
-    // TODO: remove email, gameSchedule.
     email: String,
-    contactChannels: [String],
+    contactChannels: String,
     gameSchedules: {
       type: String,
       enum: ['morning', 'evening', 'afternoon', 'ALLNIGHT'],

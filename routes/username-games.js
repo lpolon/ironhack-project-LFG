@@ -31,11 +31,7 @@ myGamesRouter.param('gameId', (req, res, next, gameIdParam) => {
 myGamesRouter.get('/:gameId/add', async (req, res, next) => {
   const { name, img_url, platforms } = await Games.findById(req.gameId);
   const { username } = req.user;
-
   const resObj = { name, img_url, platforms, username };
-  // query gamePrefs. Necessario para put
-  // const { _id: userId } = req.user;
-  // const gamePrefs = await GamePrefs.find({ gameId: req.gameId, userId });
   res.render('user-game-add-form.hbs', resObj);
 });
 
@@ -52,13 +48,11 @@ myGamesRouter.post('/:gameId/add', async (req, res) => {
       moreInfo,
     });
     try {
-      // TODO: new Id to view
       await newGamePref.save();
       await Users.findByIdAndUpdate(userId, { $push: { games: gameId } });
     } catch (error) {
       console.log(error);
     }
-    // TODO: conferir todas as rotas relativas nos views e rotas
     res.redirect(`/${req.user.username}/games`);
   } catch (error) {
     next(error);
@@ -105,12 +99,5 @@ myGamesRouter.get('/:gamePrefId/delete', async (req, res, next) => {
   await GamePrefs.findByIdAndDelete(req.gamePrefId);
   res.redirect(`/${req.user.username}/games`);
 });
-
-/*
-GamePrefs.find({userId: userId})
-buscar todas as prefs de um usuário e popular os jogos gameId.
-retornar
-*/
-//
 
 module.exports = myGamesRouter;
