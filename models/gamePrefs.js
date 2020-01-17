@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const gamePrefsSchema = new mongoose.Schema(
   {
     gameId: { type: Schema.Types.ObjectId, ref: 'Games' },
-    userId: { type: Schema.Types.ObjectId, ref: 'Users' },
+    userId: { type: Schema.Types.ObjectId, ref: 'User' },
     moreInfo: String,
     schedule: {
       type: String,
