@@ -339,7 +339,9 @@ form .form-label-group .form-control::placeholder{
 color:#7AEAAB
 }
 
-
+.menu__link:focus {
+  outline: none;
+}
 
 
 
