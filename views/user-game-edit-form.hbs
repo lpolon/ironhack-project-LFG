@@ -56,3 +56,64 @@
     </div>
   </div>
 </div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-xl-9 mx-auto">
+      <div class="card card-signin  w-100 h-100 flex-row my-5">
+        <div class="card-img-left-addgame  d-none d-md-flex ">
+          <img class="imagemonica w-100 h-100 p-3" src="{{img_url}}" alt="{{name}} image">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-center">{{name}}</h5>
+          <form action="./add" method="post" class="form-signin">
+            <div class="form-label-group">
+              <div class="form-label-group">
+                <label for="schedule" class="form-control">What time of day do you prefer to play?</label>
+                <br>
+                <br>
+                <br>
+                <select name="schedule" class="form-control" id="schedule">
+                  <option value="morning">morning</option>
+                  <option value="evening">evening</option>
+                  <option value="afternoon">afternoon</option>
+                  <option value="ALLNIGHT">ALL NIGHT LONG</option>
+                </select>
+              </div>
+            </div>
+            <hr>
+
+            <div class="form-label-group">
+              <label for="commitment" class="form-control">What kind of commitment are you looking for?</label>
+              <br>
+              <br>
+              <br>
+              <select name="commitment" class="form-control" id="commitment">
+                <option value="for fun">for fun</option>
+                <option value="competitive">competitive</option>
+              </select>
+            </div>
+            <hr>
+
+            <div class="form-label-group">
+              <label for="moreInfo" class="form-control">Would you like to add something else? (max 200
+                characters)</label>
+              <br>
+              <br>
+              <br>
+              <textarea class="form-control" name="moreInfo" id="moreInfo" cols="30" rows="3"
+                maxlength="200"></textarea>
+              <br>
+            </div>
+
+            <hr class="my-4">
+            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">ADD
+              GAME</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
