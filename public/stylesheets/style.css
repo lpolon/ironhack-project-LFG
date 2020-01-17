@@ -339,6 +339,57 @@ form .form-label-group .form-control::placeholder{
 color:#7AEAAB
 }
 
+.menu__link:focus {
+  outline: none;
+}
+
+.bodyuserwellcome {
+  width: auto;
+  height: auto;
+  margin-top: 10px;
+  text-align: center;
+  font-family:  'Poppins', sans-serif;
+  font-size: xx-large;
+  font-weight: 600;
+  padding-top: 29px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
